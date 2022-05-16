@@ -5,7 +5,6 @@ orbs:
   aws-eb: circleci/aws-elastic-beanstalk@2.0.1
 jobs:
   frontend:
-    working_directory: ~/app/udagram-frontend
     executor: node/default
     steps:
       - checkout
@@ -13,13 +12,12 @@ jobs:
           pkg-manager: yarn
       - run:
           name: building frontend
-          command: yarn build
+          command: yarn frontend:build
       - aws-cli/install
       - run:
           name: deploy frontend
-          command: yarn deploy
+          command: yarn frontend:deploy
   api:
-    working_directory: ~/app/udagram-api
     executor: node/default
     steps:
       - checkout
@@ -27,12 +25,12 @@ jobs:
           pkg-manager: yarn
       - run:
           name: building api
-          command: yarn build
+          command: yarn api:build
       - aws-cli/install
       - aws-eb/setup
       - run:
           name: deploy api
-          command: yarn deploy
+          command: yarn api:deploy
 
 workflows:
   build_and-deploy:

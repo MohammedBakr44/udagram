@@ -3,7 +3,7 @@
         "api:build": "cd udagram-api && yarn build && cd ..",
         "api:install": "cd udagram-api && yarn && cd ..",
         "api:test": "cd udagram-api && yarn test && cd ..",
-        "api:deploy": "cd udagram-api && yarn deploy",
+        "api:deploy": "cd udagram-api && yarn deploy && cd ..",
         "frontend:build": "cd udagram-frontend && yarn build && cd ..",
         "frontend:install": "cd udagram-frontend && yarn && cd ..",
         "frontend:test": "cd udagram-frontend && yarn test && cd ..",

@@ -14,11 +14,11 @@ jobs:
           pkg-manager: yarn
       - run:
           name: building frontend
-          command: yarn frontend:build
+          command: yarn build
       - aws-cli/install
       - run:
           name: deploy frontend
-          command: yarn frontend:deploy
+          command: yarn deploy
   api:
     working_directory: ~/app/udagram-api
     executor: node/default
@@ -29,12 +29,12 @@ jobs:
           pkg-manager: yarn
       - run:
           name: building api
-          command: yarn api:build
+          command: yarn build
       - aws-cli/install
       - aws-eb/setup
       - run:
           name: deploy api
-          command: yarn api:deploy
+          command: yarn deploy
 
 workflows:
   build_and-deploy:
